@@ -57,14 +57,42 @@ Proyecto para predecir el abandono de clientes en la empresa de telecomunicacion
 ## 🎯 Baseline: Modelo Dummy
 
 - Se construyó un modelo Dummy como línea base para comparar los modelos futuros.
+- Este modelo tiene un score de 0.7560
+---
+##  CREANDO MODELOS PREDICTIVOS
+Se crearon tres modelos , que son : KNN, DecisionTree y RandomForest.
+Todos los modelos se crearon con Pipeline, usando sklearn.pipeline import Pipeline o imblearn.pipeline import make_pipeline
+Cada modelo se creo un modelo base y luego se mejoraron los hiperparametros, el umbral y se mejoró el Recall, para llegar al mejor modelo
 
 ---
-✅ Recomendaciones
-Guarda este contenido como README.md en la raíz del repositorio.
 
-Puedes seguir agregando secciones como "Modelos Probados", "Métricas", "Conclusiones", etc.
+## 📊Comparacion de los tres mejoras en cada modelo.
 
-¿Quieres que te agregue una sección de resultados o visualizaciones también?
+en el caso de KNN, el mejor modelo fue : pipe_knn_opt
+En el caso de DecisionTree, el mejor modelo fue: pipe_arbol_opt
+En el caso de RandomForest, el mejor modelo fue: pipe_rfopt
+
+---
+
+##📊 Comparacion entre los tres mejores modelos.
+
+Los tres mejores modelos, se compararon y las metricas de los modelos son:
+
+Modelo  Umbral  Accuracy  Precision (Clase 1)  Recall (Clase 1)  \
+0  KNN 3    0.22  0.639053             0.406452          0.876404   
+1   DT 2    0.22  0.557727             0.361995          0.943820   
+2   RF 3    0.22  0.581395             0.375715          0.948636   
+
+   F1-score (Clase 1)       AUC  
+0            0.555348  0.795976  
+1            0.523287  0.815838  
+2            0.538251  0.831315  
+
+Finalmente el mejor modelo fue: **pipe_rfopt**
+
+---
+
+## EVALUANDO NUEVOS CLIENTES CON EL MODELO
 
 
 
@@ -73,7 +101,5 @@ Puedes seguir agregando secciones como "Modelos Probados", "Métricas", "Conclus
 
 
 
-
-Preguntar a ChatGPT
 
 
