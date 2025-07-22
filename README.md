@@ -1,44 +1,79 @@
-# Segundo_Desafio_TelecomX
-Proyecto para predecir el abandono de clientes desde la empresa de telecomunicaciones Telecom X.
+# Segundo Desafío - Telecom X
 
-**Extraccion y Visualizacion de los datos**
-Se carga el dataframe df , con7267 columnas  con 21 columnas
-Se visualizan los datos.
-
-**Calculo de Clases**
-Se determina que hay un 25.7% de abandono de clientes. Ese dato indica que hay un desbalance de clases.
-
-**PREPARACION DE LOS DATOS PARA EL MODELADO**
-
-**APLICANDO FEATURE ENGINEERING**
-**Creando variables**
- Se crea una nueva variable Gasto_mensual_antiguedad, que es la union de las variables Cuentas_diarias y Antiguedad_meses
-Gasto_mensual_antiguedad que refleja el gsto del cliente segun la antiguedad que tiene.
-
-**Removiendo columnas**
-Antes e remover las columnas que no son necesarias para el estudio en cuestión, se usó mutual_info_classif  para determinar las columnas a eliminar
-Se eliminaran las variables que tengan menor indice MI, ya son las que menos aportan en el analisis del churn.
-
-Las columnas que se dejaron en el dataframe son:
-	Abandono_cliente	
- Antiguedad_meses	
- Seguridad_en_línea_Internet	
- Tipo_de_contrato
- Metodo_de_pago	
- Gasto_diario_antiguedad
-
-**Verificando Correlacion entre variables**
-
-Aplicando indice VIF para ver si hay colinealidad entre variables
-Si el valor es menor a 5 no hay problemas de multicolinealidad. En consecuncia, las variables elegidas no tienen multicolinealidad.
-
-Verificando fuga de datos con Correlacion Pearson
-
-Dataframe datos_reducido para el modelado
-
-CREANDO BASELINE CON MODELO DUMMY
+Proyecto para predecir el abandono de clientes en la empresa de telecomunicaciones **Telecom X**.
 
 
+## 📊 Extracción y Visualización de los Datos
 
+- Se carga el DataFrame `df`, con 7267 filas y 21 columnas.
+- Se visualizan los datos para una primera inspección.
+
+---
+
+## 📉 Cálculo de Clases
+
+- Se determina que hay un **25.7% de abandono de clientes**.
+- Esto indica un **desbalance de clases**, que se debe considerar al modelar.
+
+---
+
+## 🧹 Preparación de los Datos para el Modelado
+
+### 🛠️ Feature Engineering
+
+#### ➕ Creación de nuevas variables
+- Se crea la variable `Gasto_mensual_antiguedad`, que es la combinación de:
+  - `Cuentas_diarias`
+  - `Antiguedad_meses`
+- Esta variable refleja el gasto del cliente en función de su antigüedad.
+
+#### ➖ Remoción de columnas
+- Antes de eliminar columnas, se utilizó `mutual_info_classif` para medir la importancia de cada variable.
+- Se eliminaron las variables con menor índice de **Información Mutua (MI)**, ya que aportan poco al análisis del **churn**.
+
+---
+
+## 📌 Variables seleccionadas para el modelado
+
+- `Abandono_cliente`  
+- `Antiguedad_meses`  
+- `Seguridad_en_línea_Internet`  
+- `Tipo_de_contrato`  
+- `Metodo_de_pago`  
+- `Gasto_diario_antiguedad`  
+
+---
+
+## 🔄 Verificación de correlación entre variables
+
+- Se aplicó el **índice VIF** (Variance Inflation Factor) para detectar multicolinealidad.
+  - Como los valores fueron menores a 5, no hay problemas de multicolinealidad.
+- Se utilizó la **correlación de Pearson** para verificar posibles fugas de datos.
+
+- El DataFrame final para el modelado se llama: `datos_reducido`.
+
+---
+
+## 🎯 Baseline: Modelo Dummy
+
+- Se construyó un modelo Dummy como línea base para comparar los modelos futuros.
+
+---
+✅ Recomendaciones
+Guarda este contenido como README.md en la raíz del repositorio.
+
+Puedes seguir agregando secciones como "Modelos Probados", "Métricas", "Conclusiones", etc.
+
+¿Quieres que te agregue una sección de resultados o visualizaciones también?
+
+
+
+
+
+
+
+
+
+Preguntar a ChatGPT
 
 
