@@ -131,3 +131,41 @@ Se presentan tres visualizaciones clave:
 
 ---
 
+## Herramientas Utilizadas
+La base de este trabajo es el lenguaje Python
+Se usaron las bibliotecas de python:
+pandas as pd
+numpy as np
+matplotlib.pyplot as plt
+seaborn as sns
+sklearn.feature_selection import mutual_info_classif
+statsmodels.stats.outliers_influence import variance_inflation_factor
+statsmodels.tools.tools import add_constant
+sklearn.dummy import DummyRegressor
+fsklearn.model_selection import train_test_split
+sklearn.dummy import DummyClassifier
+sklearn.pipeline import Pipeline
+sklearn.compose import ColumnTransformer
+fsklearn.preprocessing import StandardScaler, OneHotEncoder
+imblearn.pipeline import Pipeline as ImbPipeline
+imblearn.over_sampling import SMOTE
+sklearn.neighbors import KNeighborsClassifier
+sklearn.model_selection import train_test_split
+sklearn.metrics import (confusion_matrix, classification_report,accuracy_score, f1_score, roc_auc_score, roc_curve)
+sklearn.model_selection import GridSearchCV
+imblearn.pipeline import make_pipeline
+sklearn.model_selection import train_test_split
+sklearn.preprocessing import StandardScaler, OneHotEncoder
+sklearn.tree import DecisionTreeClassifier
+imblearn.over_sampling import SMOTE
+imblearn.pipeline import make_pipeline
+scipy.stats import randint
+sklearn.model_selection import RandomizedSearchCV
+sklearn.ensemble import RandomForestClassifier
+sklearn.model_selection import StratifiedKFold, cross_val_predict
+
+## AUTOR
+Gabriel Mendez Oteiza
+
+
+
