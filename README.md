@@ -54,7 +54,7 @@ Proyecto para predecir el abandono de clientes en la empresa de telecomunicacion
 
 ---
 
-## 🎯 Baseline: Modelo Dummy
+## 🎯 Baseline: Modelo Predictivo Base
 
 - Se construyó un modelo Dummy como línea base para comparar los modelos futuros.
 - Este modelo tiene un score de 0.7560
@@ -66,16 +66,14 @@ Cada modelo se creo un modelo base y luego se mejoraron los hiperparametros, el 
 
 ---
 
-## 📊Comparacion de los tres mejoras en cada modelo.
-
-en el caso de KNN, el mejor modelo fue : pipe_knn_opt
+## 📊Comparacion de los tres mejores en cada modelo.
+En el caso de KNN, el mejor modelo fue : pipe_knn_opt
 En el caso de DecisionTree, el mejor modelo fue: pipe_arbol_opt
 En el caso de RandomForest, el mejor modelo fue: pipe_rfopt
 
 ---
 
-##📊 Comparacion entre los tres mejores modelos.
-
+## 📊Comparacion de los tres mejores e modelo.
 Los tres mejores modelos, se compararon y las metricas de los modelos son:
 
 Modelo  Umbral  Accuracy  Precision (Clase 1)  Recall (Clase 1)  \
