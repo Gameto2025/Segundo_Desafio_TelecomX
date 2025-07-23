@@ -1,171 +1,140 @@
-# 🧠 Segundo Desafío - Telecom X
+🧠 Segundo Desafío - Telecom X
+La empresa Telecom X busca anticiparse al problema del abandono de clientes.
+El objetivo es desarrollar modelos predictivos capaces de prever qué clientes tienen mayor probabilidad de cancelar sus servicios.
 
-La empresa **Telecom X** quiere anticiparse al problema del abandono de clientes.  
-El objetivo es desarrollar **modelos predictivos** capaces de prever qué clientes tienen mayor probabilidad de cancelar sus servicios.
+📊 Extracción y Visualización de los Datos
+Se carga el DataFrame df, con 7267 filas y 21 columnas.
 
----
+Se realiza una inspección inicial para entender la estructura y calidad de los datos.
 
-## 📊 Extracción y Visualización de los Datos
+📉 Cálculo de Clases
+Se determina que un 25.7% de los clientes ha abandonado el servicio.
 
-- Se carga el DataFrame `df`, con **7267 filas y 21 columnas**.
-- Se realiza una inspección inicial para entender la estructura y calidad de los datos.
+Esto refleja un desbalance de clases, lo cual debe ser considerado al modelar.
 
----
+🧹 Preparación de los Datos para el Modelado
+🛠️ Feature Engineering
+➕ Creación de nuevas variables
+Se crea la variable Gasto_mensual_antiguedad como combinación de:
 
-## 📉 Cálculo de Clases
+Cuentas_diarias
 
-- Se determina que un **25.7% de los clientes ha abandonado el servicio**.
-- Esto refleja un **desbalance de clases**, lo cual debe ser abordado en el modelado.
+Antiguedad_meses
 
----
+Esta variable refleja el gasto mensual relativo a la antigüedad del cliente.
 
-## 🧹 Preparación de los Datos para el Modelado
+➖ Eliminación de columnas irrelevantes
+Se utiliza mutual_info_classif para calcular la Información Mutua (MI).
 
-### 🛠️ Feature Engineering
+Se eliminan las variables con menor MI por su bajo aporte al análisis del churn.
 
-#### ➕ Creación de nuevas variables
-- Se crea la variable `Gasto_mensual_antiguedad` como combinación de:
-  - `Cuentas_diarias`
-  - `Antiguedad_meses`
-- Esta variable refleja el gasto mensual relativo a la antigüedad del cliente.
+📌 Variables Seleccionadas para el Modelado
+Abandono_cliente
 
-#### ➖ Eliminación de columnas irrelevantes
-- Se usa `mutual_info_classif` para calcular la **Información Mutua (MI)** de cada variable respecto al objetivo.
-- Se eliminan las variables con menor MI por su bajo aporte al análisis del **churn**.
+Antiguedad_meses
 
----
+Seguridad_en_línea_Internet
 
-## 📌 Variables Seleccionadas para el Modelado
+Tipo_de_contrato
 
-- `Abandono_cliente`  
-- `Antiguedad_meses`  
-- `Seguridad_en_línea_Internet`  
-- `Tipo_de_contrato`  
-- `Metodo_de_pago`  
-- `Gasto_diario_antiguedad`
+Metodo_de_pago
 
----
+Gasto_diario_antiguedad
 
-## 🔄 Verificación de Correlación entre Variables
+🔄 Verificación de Correlación entre Variables
+Se aplicó el índice VIF (Variance Inflation Factor):
 
-- Se aplicó el **índice VIF (Variance Inflation Factor)** para detectar multicolinealidad:
-  - Todos los valores < 5 → No hay multicolinealidad.
-- Se utilizó la **correlación de Pearson** para identificar posibles **fugas de datos**.
+Todos los valores < 5 → no hay multicolinealidad.
 
-> 📌 El DataFrame final utilizado se llama `datos_reducido`.
+Se utilizó correlación de Pearson para detectar posibles fugas de datos.
 
----
+📌 El DataFrame final utilizado se llama: datos_reducido.
 
-## 🎯 Baseline: Modelo Predictivo Base
+🎯 Baseline: Modelo Predictivo Base
+Se construyó un modelo DummyClassifier como línea base.
 
-- Se construyó un **modelo Dummy** como línea base.
-- **Score del modelo Dummy:** `0.7560` (accuracy de clase mayoritaria)
+Score del modelo Dummy: 0.7560 (accuracy al predecir siempre la clase mayoritaria).
 
----
+🤖 Creación de Modelos Predictivos
+Se desarrollaron tres modelos supervisados:
 
-## 🤖 Creación de Modelos Predictivos
+KNN
 
-Se implementaron **tres modelos**:
+Decision Tree
 
-- `KNN`  
-- `Decision Tree`  
-- `Random Forest`
+Random Forest
 
 Cada modelo fue:
 
-- Implementado mediante `Pipeline` usando `sklearn.pipeline.Pipeline` o `imblearn.pipeline.make_pipeline`.
-- Ajustado mediante mejora de **hiperparámetros**, **umbral de decisión** y **optimización de Recall**.
+Implementado con Pipeline usando sklearn o imblearn.
 
----
+Mejorado mediante:
 
-## 📊 Comparación de los Mejores Modelos
+Ajuste de hiperparámetros.
 
-| Modelo | Umbral | Accuracy | Precision (Clase 1) | Recall (Clase 1) | F1-score | AUC      |
-|--------|--------|----------|----------------------|------------------|----------|----------|
-| KNN    | 0.22   | 0.6391   | 0.4065               | 0.8764           | 0.5553   | 0.7960   |
-| DT     | 0.22   | 0.5577   | 0.3620               | 0.9438           | 0.5233   | 0.8158   |
-| RF     | 0.22   | 0.5814   | 0.3757               | 0.9486           | 0.5383   | 0.8313   |
+Optimización del umbral.
 
-> 🏆 **Mejor modelo:** `Random Forest (RF3)` → `pipe_rfopt`
+Optimización del Recall (minimizar falsos negativos).
 
----
+📊 Comparación de los Mejores Modelos
+Modelo	Umbral	Accuracy	Precision (Clase 1)	Recall (Clase 1)	F1-score	AUC
+KNN	0.22	0.6391	0.4065	0.8764	0.5553	0.7960
+DT	0.22	0.5577	0.3620	0.9438	0.5233	0.8158
+RF	0.22	0.5814	0.3757	0.9486	0.5383	0.8313
 
-## 🧪 Evaluación de Nuevos Clientes
+🏆 Mejor modelo: Random Forest (RF3) → pipe_rfopt
 
-- Se desarrolló código para evaluar **nuevos clientes individuales** ingresando sus variables relevantes.
-- También se implementó un sistema para evaluar **múltiples clientes en lote**.
+🧪 Evaluación de Nuevos Clientes
+Se implementó un sistema para evaluar nuevos clientes individuales.
 
----
+También se desarrolló código para predecir el abandono de múltiples clientes en lote.
 
-## 📈 Visualización de Tendencias del Abandono
+📈 Visualización de Tendencias del Abandono
+Se generaron tres visualizaciones clave:
 
-Se presentan tres visualizaciones clave:
+📦 Boxplot: Antigüedad vs Tipo de Contrato vs Abandono
 
-1. 📦 **Boxplot**: Antigüedad vs Tipo de Contrato vs Abandono  
-2. 💸 **Gráfico de Gasto Diario por Antigüedad** según Abandono_cliente  
-3. 🔵 **Scatterplot**: Antigüedad vs Gasto Diario, diferenciando por Cancelación y Contrato
+💸 Gráfico de Gasto Diario por Antigüedad según Abandono_cliente
 
----
+🔵 Scatterplot: Antigüedad vs Gasto Diario, por Cancelación y Tipo de Contrato
 
-## 🧬 Importancia de las Variables
+🧬 Importancia de las Variables
+Usando Random Forest, se calculó la importancia relativa de cada variable.
 
-- Se utilizó un modelo de **Random Forest** para calcular la importancia relativa de cada variable.
-- **`Gasto_diario_antiguedad`** resultó ser **la más importante**, con un peso aproximado de **0.65** en la predicción.
+Gasto_diario_antiguedad fue la variable más relevante, con un peso de aproximadamente 0.65.
 
----
+⚖️ Cálculo del Odds Ratio
+Se utilizó el odds ratio para cuantificar la probabilidad de abandono en distintos grupos.
 
-## ⚖️ Cálculo del Odds Ratio
+Se comparan odds de abandono entre grupos expuestos y no expuestos a variables como tipo de contrato, gasto, etc.
 
-- El **odds ratio** se utilizó para cuantificar la fuerza de asociación entre variables y el abandono.
-- Compara la probabilidad de abandono entre grupos con y sin exposición a ciertos factores (contrato, gasto, etc.).
+✅ Conclusión
+Gasto_diario_antiguedad es el predictor más potente del abandono (OR ≈ 8.2).
 
----
+Le siguen:
 
-## ✅ Conclusión
+Tipo de contrato
 
-- La variable **`Gasto_diario_antiguedad`** es el **mejor predictor de abandono** con un OR ≈ **8.2**.
-- Le siguen:
-  - El **tipo de contrato**
-  - La **antigüedad del cliente**
-- El modelo **Random Forest optimizado (pipe_rfopt)** logra el mejor balance entre precisión y recall.
+Antigüedad del cliente
 
----
+El modelo Random Forest optimizado (pipe_rfopt) ofrece el mejor balance entre precisión y recall.
 
-## Herramientas Utilizadas
-La base de este trabajo es el lenguaje Python
-Se usaron las bibliotecas de python:
-pandas as pd
-numpy as np
-matplotlib.pyplot as plt
-seaborn as sns
-sklearn.feature_selection import mutual_info_classif
-statsmodels.stats.outliers_influence import variance_inflation_factor
-statsmodels.tools.tools import add_constant
-sklearn.dummy import DummyRegressor
-fsklearn.model_selection import train_test_split
-sklearn.dummy import DummyClassifier
-sklearn.pipeline import Pipeline
-sklearn.compose import ColumnTransformer
-fsklearn.preprocessing import StandardScaler, OneHotEncoder
-imblearn.pipeline import Pipeline as ImbPipeline
-imblearn.over_sampling import SMOTE
-sklearn.neighbors import KNeighborsClassifier
-sklearn.model_selection import train_test_split
-sklearn.metrics import (confusion_matrix, classification_report,accuracy_score, f1_score, roc_auc_score, roc_curve)
-sklearn.model_selection import GridSearchCV
-imblearn.pipeline import make_pipeline
-sklearn.model_selection import train_test_split
-sklearn.preprocessing import StandardScaler, OneHotEncoder
-sklearn.tree import DecisionTreeClassifier
-imblearn.over_sampling import SMOTE
-imblearn.pipeline import make_pipeline
-scipy.stats import randint
-sklearn.model_selection import RandomizedSearchCV
-sklearn.ensemble import RandomForestClassifier
-sklearn.model_selection import StratifiedKFold, cross_val_predict
+🧰 Herramientas Utilizadas
+Proyecto desarrollado en Python con las siguientes bibliotecas:
 
-## AUTOR
-Gabriel Mendez Oteiza
+pandas, numpy
 
+matplotlib, seaborn
 
+sklearn: selección de variables, modelado, pipelines, métricas, validación
+
+imblearn: balanceo con SMOTE y pipelines
+
+statsmodels: VIF
+
+scipy.stats: búsqueda aleatoria de hiperparámetros
+
+👤 Autor
+Gabriel Méndez Oteiza
+Proyecto desarrollado como parte del desafío de análisis y predicción del abandono de clientes en Telecom X.
 
