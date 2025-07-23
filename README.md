@@ -118,15 +118,15 @@ Se presentan tres visualizaciones clave:
 
 - El **odds ratio** se utilizó para cuantificar la fuerza de asociación entre variables y el abandono.
 - Compara la probabilidad de abandono entre grupos con y sin exposición a ciertos factores (contrato, gasto, etc.).
-
+![Gráfico de Odds Ratio](odds_ratio.png) 
 ---
 
 ## ✅ Conclusión
 
 - La variable **`Gasto_diario_antiguedad`** es el **mejor predictor de abandono** con un OR ≈ **8.2**.
 - Le siguen:
-  - El **tipo de contrato**
-  - La **antigüedad del cliente**
+  - El **Metodo de pago**
+  - La **Antigüedad del cliente**
 - El modelo **Random Forest optimizado (`pipe_rfopt`)** logra el mejor balance entre precisión y recall.
 
 ---
@@ -146,4 +146,4 @@ Se presentan tres visualizaciones clave:
 ## 👤 Autor
 
 Gabriel Méndez Oteiza  
-Proyecto para curso de Ciencia de Datos - 2025
+Proyecto para curso de Ciencia de Datos. AluraLatam-ONE - 2025
