@@ -96,6 +96,7 @@ Cada modelo fue:
 
 - Se desarrolló código para evaluar **nuevos clientes individuales** ingresando sus variables relevantes.
 - También se implementó un sistema para evaluar **múltiples clientes en lote**.
+- Los codigos se basaron en el mejor modelo, que fue: Random Forest optimizado (RF3) (pipe_rfopt) 
 
 ---
 
