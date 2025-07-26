@@ -76,6 +76,7 @@ Cada modelo fue:
 - Implementado mediante `Pipeline` usando `sklearn.pipeline.Pipeline` o `imblearn.pipeline.make_pipeline`.
 - Ajustado mediante mejora de **hiperparámetros**, **umbral de decisión** y **optimización de Recall**.
 - Para cada modelo se construyó un modelo basico, y dos modelos mejorados, con mejores hiperparametros. mejoramiento de umbral y optimizacion del Recall.
+- Luego, se compararon sus metricas, para elegir el mejor de cada modelo.
 
 ---
 
