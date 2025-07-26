@@ -52,7 +52,7 @@ El objetivo es desarrollar **modelos predictivos** capaces de prever qué client
   - Todos los valores < 5 → No hay multicolinealidad.
 - Se utilizó la **correlación de Pearson** para identificar posibles **fugas de datos**.
 
-> 📌 El DataFrame final utilizado se llama `datos_reducido`.
+> 📌 El DataFrame final que será utilizado en los modelos predictivos, se llama `datos_reducido`.
 
 ---
 
@@ -65,7 +65,7 @@ El objetivo es desarrollar **modelos predictivos** capaces de prever qué client
 
 ## 🤖 Creación de Modelos Predictivos
 
-Se implementaron **tres modelos**:
+Se desarrollaron **tres modelos**:
 
 - `KNN`  
 - `Decision Tree`  
