@@ -144,7 +144,29 @@ Se presentan tres visualizaciones clave:
   - `imblearn` (balanceo de clases)
   - `statsmodels`, `scipy`
 
+
 ---
+## 🛠️ Creación del Script
+
+Se desarrolló un script para utilizar el modelo de predicción de abandono de clientes **fuera del entorno de Colab**.
+
+### 📄 Instrucciones de Uso
+
+1. **Descargar** los archivos `modelo_abandono.pkl` y `predictor_abandono.py` en una misma carpeta (por ejemplo, en el escritorio).
+2. **Abrir Git Bash** (o cualquier terminal) y navegar hasta la carpeta donde se guardaron los archivos:
+
+   ```bash
+   cd ~/Desktop/abandono
+Ejecutar el script:
+
+bash
+
+python predictor_abandono.py
+
+Ingresar los datos solicitados para cada cliente cuando el programa lo indique.
+
+El script mostrará la probabilidad de abandono y una predicción final (Sí o No).
+
 
 ## 👤 Autor
 
