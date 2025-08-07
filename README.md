@@ -1,7 +1,7 @@
 # 🧠 Segundo Desafío - Telecom X
 
 La empresa **Telecom X** quiere anticiparse al problema del abandono de clientes.  
-El objetivo es desarrollar **modelos predictivos** capaces de prever qué clientes tienen mayor probabilidad de cancelar sus servicios.
+El objetivo de este proyeto es desarrollar **modelos predictivos** capaces de prever qué clientes tienen mayor probabilidad de cancelar sus servicios.
 
 ---
 
